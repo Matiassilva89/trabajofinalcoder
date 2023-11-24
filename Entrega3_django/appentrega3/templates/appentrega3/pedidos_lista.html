@@ -1,0 +1,39 @@
+{% extends "appentrega3/nuevoindex.html" %}
+{% load static %}
+{% block titulo%}listado{% endblock titulo%}
+
+{% block cuerpo %}
+
+<h1 class="text-bg-secondary p-3">LISTADOS DE PEDIDOS</h1>
+<br>
+<div class="container mt-2">
+    
+<a class="btn btn-secondary" href={% url 'NuevoPedido' %}>Agregar Pedido</a>
+<a class="btn btn-secondary" href={% url 'buscar_pedidos' %}>Buscar Pedido</a>
+
+<form action="" method="GET">
+    {% csrf_token %}
+    {{formulario.as_p}}
+    
+</form>
+<br>
+{% if pedidos %}
+{% for agregarpedido in pedidos %}
+<li>Nombre: {{agregarpedido.nombre}}
+<li>Apellido: {{agregarpedido.apellido}}
+    <p>
+        <a href="{% url 'DetallePedido' agregarpedido.pk %}">Ver</a>
+        |
+        <a href="{% url 'EditarPedido' agregarpedido.pk %}">Editar</a>
+        |
+        <a href="{% url 'BorrarPedido' agregarpedido.pk %}">Borrar</a>
+        
+    </p>
+</li>
+</div>
+
+{% endfor %}
+{% else %}
+<p>No existe ningun dato creado </p>
+{% endif %}
+{% endblock cuerpo  %}

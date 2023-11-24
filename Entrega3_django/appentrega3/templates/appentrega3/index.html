@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ROFREN SAS - {% block titulo%}{% endblock titulo%}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'appentrega3/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+
+    
+
+
+
+
+
+
+
+
+
+        
+
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+
+           
+            <div class="container px-4">
+
+                <a class="navbar-brand" href="{% url 'home'%}">Inicio</a>
+
+               
+                
+                {% if not request.user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'Register'%}">Registro</a>
+                <a class="btn btn-primary" href="{% url 'Login'%}">Iniciar sesion</a>
+                
+            {% else %}
+                
+            <a class="btn btn-primary" button style="margin-right: 10px" href="{% url 'editarPerfil' %}">Perfil</a>
+            
+            <a class="btn btn-primary" button style="margin-right: 10px" href="{% url 'Logout' %}">Salir</a>
+       
+            {% comment %} <a class="navbar-brand" href="#">{{request.user.username}}</a> {% endcomment %}
+
+            <span class="text-light"> Hola!  <strong>{{request.user.username}}</strong></span>
+
+            <span> ---</span>
+                {% if request.user.avatar %}
+                    <img src="{{request.user.avatar.imagen.url}}" alt="" height="40px">
+                {% endif %}
+            {% endif %}
+                
+           
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    
+
+
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ListaPedidos'%}">Ingresar pedido</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'pedidoform'%}">Tu pedido</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'sobrenosotros'%}">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contactoform'%}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'trabajaconnos'%}">Trabaja con nosotros</a></li>
+                        
+                        
+                        
+                        {% if user.is_superuser %}
+                        <!-- Mostrar el botón especial solo si el usuario es un superusuario -->
+                        <a class="btn btn-danger" href=""> Super Usuario</a>
+                {% endif %}
+            
+                        
+                        {% comment %} <a class="text-gray" href="{% url 'Logout'%}">Salir</a>
+                        <a class="text-gray" href="{% url 'Register'%}">Registrarse</a {% endcomment %}
+                
+                           
+                    </ul>
+
+                   
+                    
+                     {% comment %} <a class="text-gray" href="{% url 'Register'%}">Registrarse</a> </li> {% endcomment %}
+                     
+                </div>
+                
+            </div>
+           
+        </nav>
+
+        
+
+
+
+    
+        <!-- Masthead-->
+        
+        <!-- Icons Grid-->
+       
+       
+        <!-- Image Showcases-->
+    <br>
+    <br>
+    
+    
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1 class="fw-bolder">Bienvenidos a Farmacias del Sur</h1>
+                <p class="lead">Somos lideres en calidad y servicios</p>
+                
+                <br>
+                
+                <br>
+                {% comment %} <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a> {% endcomment %}
+                
+                <br>
+                
+                <br>
+                
+                <br>
+                
+                <br>
+            </div>
+        </header>
+
+
+
+
+
+
+
+
+        
+        <section class="showcase">
+            
+            {% block cuerpo%}{% endblock cuerpo%}
+
+
+
+
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img">
+                <br>
+                <br>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'imagenes/historia.png' %}" class="rounded" width="400px">
+        </div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Historia</h2>
+                <p class="lead mb-0">En la actualidad  Farmacias del Sur se encuentra posicionada como una de las farmacias más antiguas y con más renombre en Córdoba, fruto de la constancia y visión de sus directivos y del permanente esfuerzo y dedicación de su personal. Con un plantel de más de 200 empleados. Crecimiento sobre valores, ofreciendo el mejor servicio farmacéutico con alta calidad en el cuidado de la salud de nuestros clientes, contando con la profesionalidad y amabilidad del capital humano que dispone la empresa.</p>
+            </div>
+        </div>
+
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img">
+                <br>
+                <br>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'imagenes/lideres.jpg' %}" class="rounded" width="400px">
+        </div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Lideres en la Region</h2>
+                <p class="lead mb-0">Encontrá en Farmacias del Sur una gran variedad de productos de dermocosmética, perfumería, todo para el cuidado personal y mucho más en nuestras sucuarsales</p>
+            </div>
+        </div>
+
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img">
+                <br>
+                <br>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'imagenes/sucursales.jpeg' %}" class="rounded" width="400px">
+        </div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Sucursales</h2>
+                <p class="lead mb-0">SUCURSAL NUEVOCENTRO:Duarte Quirós 1400 | SUCURSAL URBANA:Av. Pedro Laplace 5890 | SUCURSAL URCA:Emilio Lamarca 4135 | SUCURSAL MARTINOLLI:Av. Recta Martinolli 8853 | SUCURSAL V. BELGRANO:Recta Martinoli 6137 | SUCURSAL COLÓN:Av. Colón 5034 | SUCURSAL O´HIGGINS:Av. O´Higgins 5450 | SUCURSAL REAL:Av. Goycoechea 1168, Villa Allende | SUCURSAL PASEO RIVERA: Enrique Bodereau 7571, Córdoba | SUCURSAL LIBERTAD: Avenida Libertad</p>
+            </div>
+        </div>
+
+
+{% comment %} 
+
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('media/avatares/1.jpg.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Nuestra Mision</h2>
+                <p class="lead mb-0">Ayudar a nuestros pacientes dando consejo farmacéutico individualizado y profesional con todas las herramientas terapéuticas posibles contando con gran stock para poder realizarlo.</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>Nuestra Vision</h2>
+                <p class="lead mb-0">Ofrecer todo aquello que el paciente necesita actulizándonos continuamente en todos nuestros campos.</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Lo que nos diferencia</h2>
+                <p class="lead mb-0">Ser paciente de Farmcias del Sur significa tener la seguridad de estar en manos de los mejores farmacéuticos. Profesionales que se vuelcan para que la salud y bienestar de los pacientes sea siempre la mejor y más adecuada. Por eso en Farmacias del Sur marcamos la diferencia al dar el mejor consejo farmacéutico acompañado de un amplio stock de medicamentos y productos. Resolviendo así lo que requiera el paciente en la mayor brevedad posible.</p>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+            
+        </section>
+
+
+
+        <!-- Testimonials-->
+        <section class="testimonials text-center bg-light">
+            <div class="container">
+                <h2 class="mb-5">Nuestros Valores</h2>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src= "{% static 'imagenes/farmacia1.jpg' %}" alt="..." />
+                            <h5>Cercania</h5>
+                            <p class="font-weight-light mb-0">Queremos que nuestros pacientes se sientan como en casa. Por eso, nos volcamos con los problemas de nuestros clientes haciéndolos propios para así dar siempre la mejor solución posible.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'imagenes/farmacia2.jpeg' %}" alt="..." />
+                            <h5>Honestidad</h5>
+                            <p class="font-weight-light mb-0">Nuestras recomendaciones siempre están ligadas a criterios científicos y profesionales. Por lo tanto, los productos o servicios farmacéuticos serán aquellos que de mayor seguridad y beneficio para al paciente.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'imagenes/farmacia3.jpeg' %}" alt="..." />
+                            <h5>Transparencia</h5>
+                            <p class="font-weight-light mb-0">En todo momento queremos que nuestros pacientes cuenten con toda la información sobre nuestros productos y servicios. Por eso, os animamos a que nos preguntéis cualquier duda ¡estaremos encantados de responderos!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action-->
+
+
+        <section class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1 class="fw-bolder">Farmacias del Sur</h1>
+                <br>
+                <p class="lead">La red de Farmacias mas grande de toda cordoba</p>
+                
+                <br>
+                
+                <br>
+                <a class="btn btn-lg btn-light" href="{% url 'home'%}">Inicio</a>
+                
+                <br>
+                
+                <br>
+                
+                <br>
+                
+                <br>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        
+        {% comment %} <section class="call-to-action text-white text-center" id="signup">
+            <div class="container position-relative">
+                <div class="row justify-content-center"> {% endcomment %}
+                    {% comment %} <div class="col-xl-6">
+                        <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+                        <!-- Signup form-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+                            <!-- Email address input-->
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
+                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
+                                </div>
+                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    <p>To activate this form, sign up at</p>
+                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        </form>
+                    </div> {% endcomment %}
+                {% comment %} </div>
+            </div>
+        </section> {% endcomment %}
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="{% url "acercademi"%}">Acerca de mi</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            {% comment %} <li class="list-inline-item"><a href="#!">Contact</a></li> {% endcomment %}
+                            <li class="list-inline-item">⋅</li>
+                            {% comment %} <li class="list-inline-item"><a href="#!">Terminos y condiciones</a></li> {% endcomment %}
+                            <li class="list-inline-item">⋅</li>
+                            {% comment %} <li class="list-inline-item"><a href="#!">Privacy Policy</a></li> {% endcomment %}
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.facebook.com/farmaciadelsurvr/?locale=es_LA"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                {% comment %} <a href="#!"><i class="bi-twitter fs-3"></i></a> {% endcomment %}
+                            </li>
+                            <li class="list-inline-item">
+                                {% comment %} <a href="#!"><i class="bi-instagram fs-3"></i></a> {% endcomment %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

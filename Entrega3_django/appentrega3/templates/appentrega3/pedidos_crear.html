@@ -1,0 +1,18 @@
+{% extends "appentrega3/nuevoindex.html" %}
+{% load static %}
+{% block titulo%}agregarpedido{% endblock titulo%}
+{% block cuerpo %}
+
+<h1 class="text-bg-secondary p-3">AGREGAR PEDIDOS</h1>
+<br>
+
+<div class="container mt-2">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Crear">
+</form>
+<br>
+<a class="btn btn-primary" href="{% url 'ListaPedidos'%}">Regresar</a>
+</div>
+{% endblock cuerpo  %}

@@ -1,0 +1,32 @@
+{% extends "appentrega3/nuevoindex.html" %}
+{% load static %}
+
+{% block titulo%}editarperfil{% endblock titulo%}
+
+{% block cuerpo %}
+
+<h1 class="text-bg-secondary p-3">EDITAR PERFIL</h1>
+<br>
+<div class="container mt-2">
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+   
+    <h3>Usuario: {{usuario}}</h3>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Acá está la magia de Django-->
+        <table>
+            {{ miFormulario }}
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form> 
+    <br> 
+    <button type='button'>
+        <a class="navbar-brand" href="{% url 'CambiarContrasenia' %}">Cambiar contrasenia</a>
+    </button>
+</div>
+
+
+{% endblock %}
+
+

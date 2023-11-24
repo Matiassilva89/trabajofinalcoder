@@ -1,0 +1,64 @@
+{% extends 'appentrega3/nuevoindex.html'%}
+{% load static %}
+
+{% block titulo%}buscarpedidos{% endblock titulo%}
+
+{% block cuerpo%}
+
+<h1 class="text-bg-secondary p-3">BUSCAR PEDIDOS</h1>
+
+
+
+
+
+    <br>
+    <div class="container mt-2">
+<h5>Por favor ingrese el Apellido para la busqueda </h5>
+<br>
+<form method='get' action="{% url 'buscar_pedidos' %}">
+    <input type="text" name ="q" value="{{query}}">
+    <button tipe ="submit">Buscar</button>
+</form>
+
+
+
+<ul>
+    <br>
+
+  
+
+
+    {% for variable in results %}
+
+    <p>Nombre:<i>{{variable.nombre}}</i></p>
+    <p>Apellido:<i>{{variable.apellido}}</i></p>
+    <p>Email:<i>{{variable.email}}</i></p>
+    <p>Pedido:<i>{{variable.detallar}}</i></p>
+    <p>Cantidad:<i>{{variable.cantidad}}</i></p>
+    
+    
+
+{% empty %}
+
+    {% comment %} {% empty %} {% endcomment %}
+    <br>
+    <p>No se encontraron datos </p>
+    <br>
+    
+        <a class="btn btn-primary" href="{% url 'ListaPedidos'%}">Regresar</a>
+
+</div>
+
+
+   {% endfor %} 
+
+   
+  
+    
+</ul>
+
+
+{% endblock cuerpo%}
+
+
+

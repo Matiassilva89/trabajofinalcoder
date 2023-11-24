@@ -1,0 +1,18 @@
+{% extends "appentrega3/nuevoindex.html" %}
+
+
+{% load static %}
+
+
+{% block cuerpo %}
+<h1>Cambiar contrasenia</h1>
+<form action='' method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Cambiar</button>
+</form>
+
+
+{% endblock %}

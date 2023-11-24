@@ -1,0 +1,22 @@
+{% extends "appentrega3/nuevoindex.html" %}
+{% load static %}
+{% block titulo%}detalle{% endblock titulo%}
+{% block cuerpo %}
+
+
+<h1 class="text-bg-secondary p-3">DETALLE DEL PEDIDO</h1>
+<br>
+<div class="container mt-2">
+
+<p>Nombre del Curso: <i>{{agregarpedido.nombre}}</i></p>
+<p>apellido: <i>{{agregarpedido.apellido}}</i></p>
+<p>email: <i>{{agregarpedido.email}}</i></p>
+<p>detallar: <i>{{agregarpedido.detallar}}</i></p>
+
+<p>Cantidad: <i>{{agregarpedido.cantidad}}</i></p>
+<p>
+    <br>
+    <a class="btn btn-primary" href="{% url 'ListaPedidos'%}">Regresar</a>
+</p>
+</div>
+{% endblock cuerpo  %}

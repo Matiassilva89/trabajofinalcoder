@@ -1,0 +1,27 @@
+{% extends 'appentrega3/nuevoindex.html'%}
+{% load static %}
+
+{% block titulo%}contactoForm{% endblock titulo%}
+
+{% block cuerpo%}
+
+<h1 class="text-bg-secondary p-3">CONTACTO</h1>
+<br>
+<h5 class="text-center">A continuacion,  ingrese sus datos y sera contactado por alguien de nuestro equipo a la brevedad.</h5>
+<br>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{miFormulario.as_table}}
+                </table>
+                <br>
+        <input  class="btn btn-primary" type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock cuerpo%}

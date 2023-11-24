@@ -1,0 +1,27 @@
+{% extends 'appentrega3/nuevoindex.html'%}
+{% load static %}
+
+{% block titulo%}contactogracias{% endblock titulo%}
+
+{% block cuerpo%}
+
+<h1 class="text-bg-secondary p-3">CONTACTO</h1>
+<br>
+<h4 class="text-center">MUCHAS GRACIAS!!! Nos contactaremos contigo a la brevedad</h4>
+<br>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{miFormulario.as_table}}
+                </table>
+                <br>
+        
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock cuerpo%}

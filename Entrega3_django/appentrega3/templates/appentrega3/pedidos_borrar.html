@@ -1,0 +1,21 @@
+{% extends "appentrega3/nuevoindex.html" %}
+{% load static %}
+
+{% block titulo%}eliminarpedido{% endblock titulo%}
+{% block cuerpo %}
+
+<h1 class="text-bg-secondary p-3">DETALLE DEL PEDIDO</h1>
+<br>
+<div class="container mt-2">
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <Br>
+    <h5>Confirmar Eliminacion</h5>
+    ¿Estas seguro que deseas borrar el Pedido? - Nombre: {{agregarpedido.nombre}} - Apellido: {{agregarpedido.apellido}} - Detalle del pedido: {{agregarpedido.detallar}}
+    <input type="submit" value="Eliminar">
+</form>
+<br>
+<a class="btn btn-primary" href="{% url 'ListaPedidos'%}">Regresar</a>
+</div>
+{% endblock cuerpo  %}

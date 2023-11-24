@@ -1,0 +1,19 @@
+{% extends 'appentrega3/nuevoindex.html'%}
+{% load static %}
+
+{% block titulo%}Login{% endblock titulo%}
+
+{% block cuerpo %}
+
+
+<h1 class="text-bg-secondary p-3">REGISTRO</h1>
+<br>
+<div class="container mt-2">
+
+<form action="" method="POST">
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Inciar sesion</button>
+</form>
+</div>
+{% endblock cuerpo  %}
